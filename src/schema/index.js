@@ -1,10 +1,10 @@
 import { gql } from 'apollo-server-express';
 export default gql`
  type Query{
-  owners:[Owner]
-  shops:[Shop]
-  treasures:[Treasure]
-  owner(owner_id:ID!):Owner
+  topics:[Topic]
+  users:[User]
+  articles:[Article]
+  getArticle(article_id:ID!):Article
  }
  
 type Owner{
