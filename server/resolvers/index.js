@@ -1,6 +1,6 @@
-import { fetchOwners, fetchOwnerByID } from '../models/owners';
+import { fetchOwners, fetchOwnerByID } from '../models/topics';
 import { fetchShops, fetchShopsByOwnerID, fetchOwnerByShopID, fetchStockValue, fetchShopCount, fetchShopsStockValue } from '../models/shops';
-import { fetchTreasures, fetchTreasuresByShopID } from '../models/treasures';
+import { fetchTreasures, fetchTreasuresByShopID } from '../models/articles';
 export default {
  Query: {
   owners: () => fetchOwners(),

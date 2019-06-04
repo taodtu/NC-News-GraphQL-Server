@@ -21,13 +21,24 @@ type Topic{
   comments:[Comment]
  }
 
- type Treasure{
-  treasure_id: ID,
-  treasure_name: String,
-  colour: String,
-  age: Int,
-  cost_at_auction: String,
-  shop_id: ID,
+ type Article{
+  article_id: ID,
+  title: String,
+  body: String,
+  votes: Int=0,
+  topic: String,
+  author:String,
+  created_at:String,
+  comments:[Comment]
+ }
+
+ type Comment{
+  comment_id: ID,
+  body: String,
+  votes: Int=0,
+  article_id:ID
+  author:String,
+  created_at:String,
  }
  
 `
