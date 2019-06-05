@@ -5,6 +5,8 @@ export default gql`
   getUser(username:String!):User
   articles:[Article]
   getArticle(article_id:ID!):Article
+  comments:[Comment]
+  getComment(comment_id:ID!):Comment
  }
  
 type Topic{
@@ -29,6 +31,7 @@ type Topic{
   topic: String,
   author:String,
   created_at:String,
+  comment_count:Int,
   comments:[Comment]
  }
 

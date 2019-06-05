@@ -1,9 +1,8 @@
 const connection = require("../../db/connection");
 
-const fetchUser = async (username) => {
- const rows = await connection.select('*').from('users').where({ username }).returning('*');
- return rows[0];
-};
+const fetchUser = async (username) => await
+ connection.select('*').from('users').where({ username }).returning('*').first();
+
 
 const fetchArticlesByUser = async (author) => await connection
  .select('*')
