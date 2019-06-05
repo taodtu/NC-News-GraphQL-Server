@@ -4,7 +4,6 @@ const fetchArticles = async () => await connection
  .select('articles.*')
  .count({ comment_count: 'comment_id' })
  .from('articles')
- .where({ "articles.article_id": article_id })
  .leftJoin('comments', 'comments.article_id', '=', 'articles.article_id')
  .groupBy('articles.article_id')
  .returning('*');
