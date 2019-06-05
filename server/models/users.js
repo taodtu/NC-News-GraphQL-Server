@@ -5,13 +5,20 @@ const fetchUser = async (username) => {
  return rows[0];
 };
 
-const fetchArticlesByUser = async (user) => await connection
+const fetchArticlesByUser = async (author) => await connection
  .select('*')
  .from('articles')
- .where({ author: user })
+ .where({ author })
+ .returning('*');
+
+const fetchCommentsByUser = async (author) => await connection
+ .select('*')
+ .from('comments')
+ .where({ author })
  .returning('*');
 
 export {
  fetchUser,
- fetchArticlesByUser
+ fetchArticlesByUser,
+ fetchCommentsByUser
 }

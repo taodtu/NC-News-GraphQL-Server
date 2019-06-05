@@ -9,7 +9,7 @@ export default {
  },
  User: {
   articles: (parent, args, { models }) => models.fetchArticlesByUser(parent.username),
-  comments: (parent, args, { models }) => models.fetchArticlesByUser(parent.username)
+  comments: (parent, args, { models }) => models.fetchCommentsByUser(parent.username)
  }
 
 }

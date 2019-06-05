@@ -1,4 +1,4 @@
 import { fetchTopics, fetchArticlesByTopic } from './topics';
-import { fetchUser, fetchArticlesByUser } from './users';
+import { fetchUser, fetchArticlesByUser, fetchCommentsByUser } from './users';
 
-export default { fetchTopics, fetchArticlesByTopic, fetchUser, fetchArticlesByUser };
+export default { fetchTopics, fetchArticlesByTopic, fetchUser, fetchArticlesByUser, fetchCommentsByUser };
