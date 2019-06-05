@@ -25,7 +25,7 @@ type Topic{
   article_id: ID,
   title: String,
   body: String,
-  votes: Int=0,
+  votes: Int,
   topic: String,
   author:String,
   created_at:String,
@@ -35,7 +35,7 @@ type Topic{
  type Comment{
   comment_id: ID,
   body: String,
-  votes: Int=0,
+  votes: Int,
   article_id:ID
   author:String,
   created_at:String,

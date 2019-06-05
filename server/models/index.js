@@ -1,3 +1,3 @@
+import { fetchTopics, fetchArticlesByTopic } from './topics'
 
-
-export default {};
+export default { fetchTopics, fetchArticlesByTopic };

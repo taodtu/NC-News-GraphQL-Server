@@ -1,9 +1,16 @@
-import connection from '../../db/connection';
+const connection = require("../../db/connection");
 
-const fetchOwners = async () => await connection.select('*').from('owners').limit(100);
+const fetchTopics = async () => await connection.select('*').from('topics').returning('*');
 
-const fetchOwnerByID = async (id) => await connection.select('*').from('owners').where({ owner_id: id }).returning('*');
+const fetchArticlesByTopic = async (topic) => await connection
+ .select('*')
+ .from('articles')
+ .where({ topic })
+ .returning('*');
 
-export { fetchOwners, fetchOwnerByID }
+export {
+ fetchTopics,
+ fetchArticlesByTopic
+}
 
 
