@@ -9,6 +9,7 @@ export default gql`
 extend type Mutation{
   createComment(body:String! author:String!):Comment!
   deleteComment(comment_id:ID!):Boolean!
+  updateComment(comment_id:ID!, inc_votes:Int!):Comment!
 }
 
  type Comment{

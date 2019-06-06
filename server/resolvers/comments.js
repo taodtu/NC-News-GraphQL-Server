@@ -6,5 +6,6 @@ export default {
  Mutation: {
   createComment: (parent, { body, author }, { models }) => models.insertComment(body, author),
   deleteComment: (parent, { comment_id }, { models }) => models.deleteComment(comment_id),
+  updateComment: (parent, { comment_id, inc_votes }, { models }) => models.updateCommentByID(comment_id, inc_votes),
  },
 }

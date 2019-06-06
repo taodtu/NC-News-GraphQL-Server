@@ -22,11 +22,23 @@ const deleteComment = async (comment_id) => (await connection
   .select('*')
   .from('comments')
   .where({ comment_id })
-  .del()) ? true : false
+  .del()) ? true : false;
+
+const updateCommentByID = async (comment_id, inc_votes) => {
+  const res = await connection
+    .select('*')
+    .from('comments')
+    .where({ comment_id: comment_id })
+    .increment('votes', inc_votes)
+    .returning('*')
+
+  return res[0]
+}
 
 export {
   fetchComments,
   fetchCommentByID,
   insertComment,
   deleteComment,
+  updateCommentByID
 }
