@@ -6,6 +6,9 @@ import articlesSchema from './articles';
 import commentsSchema from './comments';
 
 const linkSchema = gql`
+
+  scalar Date
+
   type Query {
     _: Boolean
   }

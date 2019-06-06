@@ -17,7 +17,7 @@ extend type Mutation{
   votes: Int,
   article_id:ID
   author:String,
-  created_at:String,
+  created_at:Date,
  }
  
 `

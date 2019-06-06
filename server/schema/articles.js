@@ -12,7 +12,7 @@ export default gql`
   votes: Int,
   topic: String,
   author:String,
-  created_at:String,
+  created_at:Date,
   comment_count:Int,
   comments:[Comment]
  }
