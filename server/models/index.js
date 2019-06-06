@@ -1,10 +1,10 @@
-import { fetchTopics, fetchArticlesByTopic } from './topics';
-import { fetchUser, fetchArticlesByUser, fetchCommentsByUser } from './users';
+import { fetchTopics, fetchArticlesByTopic, countComments } from './topics';
+import { fetchUser, fetchArticlesByUser, fetchCommentsByUser, articleCount } from './users';
 import { fetchArticles, fetchArticleByID, fetchCommentsByArticle } from './articles';
 import { fetchComments, fetchCommentByID } from './comments'
 
 export default {
- fetchTopics, fetchArticlesByTopic, fetchUser, fetchArticlesByUser,
+ fetchTopics, fetchArticlesByTopic, countComments, fetchUser, fetchArticlesByUser, articleCount,
  fetchCommentsByUser, fetchArticles, fetchArticleByID, fetchCommentsByArticle, fetchComments,
  fetchCommentByID,
 };

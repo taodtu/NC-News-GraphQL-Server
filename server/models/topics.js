@@ -1,16 +1,40 @@
 const connection = require("../../db/connection");
 
-const fetchTopics = async () => await connection.select('*').from('topics').returning('*');
+const fetchTopics = async () => connection.select('topics.*').count({ article_count: 'article_id' })
+ .from('topics')
+ .leftJoin('articles', 'articles.topic', '=', 'topics.slug')
+ .groupBy('topics.slug').returning('*');
 
 const fetchArticlesByTopic = async (topic) => await connection
- .select('*')
+ .select('articles.*')
+ .count({ comment_count: 'comment_id' })
  .from('articles')
  .where({ topic })
+ .leftJoin('comments', 'comments.article_id', '=', 'articles.article_id')
+ .groupBy('articles.article_id')
  .returning('*');
+
+const countComments = async (topic) => {
+ const articles = await fetchArticlesByTopic(topic);
+ const res = await Promise.all(articles.map(async (article) => {
+  return await
+   connection
+    .count({ comment_count: 'comment_id' })
+    .from('articles')
+    .where({ 'articles.article_id': article.article_id })
+    .leftJoin('comments', 'comments.article_id', '=', 'articles.article_id')
+    .groupBy('articles.article_id')
+    .returning('*')
+    .first();
+ }
+ ));
+ return res.reduce((acc, cur) => acc += +cur.comment_count, 0)
+};
 
 export {
  fetchTopics,
- fetchArticlesByTopic
+ fetchArticlesByTopic,
+ countComments
 }
 
 
