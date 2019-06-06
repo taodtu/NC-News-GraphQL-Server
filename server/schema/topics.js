@@ -1,9 +1,17 @@
-import connection from '../../db/connection';
+import { gql } from 'apollo-server-express';
 
-const fetchOwners = async () => await connection.select('*').from('owners').limit(100);
-
-const fetchOwnerByID = async (id) => await connection.select('*').from('owners').where({ owner_id: id }).returning('*');
-
-export { fetchOwners, fetchOwnerByID }
+export default gql`
+ extend type Query{
+  topics:[Topic]
+ }
+ 
+type Topic{
+  slug:String!
+  description:String 
+  articles:[Article]
+  article_count:Int
+  comment_count:Int
+ }
+`
 
 
