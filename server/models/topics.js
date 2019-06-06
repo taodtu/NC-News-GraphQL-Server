@@ -16,19 +16,7 @@ const fetchArticlesByTopic = async (topic) => await connection
 
 const countComments = async (topic) => {
  const articles = await fetchArticlesByTopic(topic);
- const res = await Promise.all(articles.map(async (article) => {
-  return await
-   connection
-    .count({ comment_count: 'comment_id' })
-    .from('articles')
-    .where({ 'articles.article_id': article.article_id })
-    .leftJoin('comments', 'comments.article_id', '=', 'articles.article_id')
-    .groupBy('articles.article_id')
-    .returning('*')
-    .first();
- }
- ));
- return res.reduce((acc, cur) => acc += +cur.comment_count, 0)
+ return articles.reduce((acc, cur) => acc += +cur.comment_count, 0)
 };
 
 export {

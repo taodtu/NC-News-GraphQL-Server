@@ -6,7 +6,7 @@ const fetchUser = async (username) => await
     .from('users').where({ username })
     .leftJoin('comments', 'comments.author', '=', 'users.username')
     .leftJoin('articles', 'articles.author', '=', 'users.username')
-    .groupBy('users.username').returning('*')
+    .groupBy('users.username')
     .first();
 
 

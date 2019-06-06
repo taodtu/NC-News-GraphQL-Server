@@ -9,6 +9,10 @@ export default gql`
   getComment(comment_id:ID!):Comment
  }
  
+type Mutation{
+  createComment(body:String! author:String!):Comment!
+}
+
 type Topic{
   slug:String!
   description:String 

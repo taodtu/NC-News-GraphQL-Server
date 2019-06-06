@@ -1,4 +1,3 @@
-
 export default {
  Query: {
   topics: (parent, args, { models }) => models.fetchTopics(),
@@ -7,6 +6,9 @@ export default {
   getArticle: (parent, { article_id }, { models }) => models.fetchArticleByID(article_id),
   comments: (parent, { sort_by, order }, { models }) => models.fetchComments(sort_by, order),
   getComment: (parent, { comment_id }, { models }) => models.fetchCommentByID(comment_id),
+ },
+ Mutation: {
+  createComment: (parent, { body, author }, { models }) => models.insertComment(body, author),
  },
  Topic: {
   articles: (parent, args, { models }) => models.fetchArticlesByTopic(parent.slug),
