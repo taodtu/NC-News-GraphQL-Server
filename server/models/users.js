@@ -2,10 +2,8 @@ const connection = require("../../db/connection");
 
 const fetchUser = async (username) => await
   connection.select('users.*').count({ comment_count: 'comment_id' })
-    .count({ article_count: 'articles.article_id' })
     .from('users').where({ username })
     .leftJoin('comments', 'comments.author', '=', 'users.username')
-    .leftJoin('articles', 'articles.author', '=', 'users.username')
     .groupBy('users.username')
     .first();
 

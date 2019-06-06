@@ -17,7 +17,7 @@ export default {
  User: {
   articles: (parent, args, { models }) => models.fetchArticlesByUser(parent.username),
   comments: (parent, args, { models }) => models.fetchCommentsByUser(parent.username),
-  // article_count: (parent, args, { models }) => models.articleCount(parent.username)
+  article_count: (parent, args, { models }) => models.articleCount(parent.username)
  },
  Article: {
   comments: (parent, args, { models }) => models.fetchCommentsByArticle(parent.article_id)
