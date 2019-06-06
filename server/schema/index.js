@@ -11,6 +11,7 @@ export default gql`
  
 type Mutation{
   createComment(body:String! author:String!):Comment!
+  deleteComment(comment_id:ID!):Boolean!
 }
 
 type Topic{

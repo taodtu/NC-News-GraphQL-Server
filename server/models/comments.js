@@ -18,8 +18,15 @@ const insertComment = async (body, author) => {
   return res[0]
 }
 
+const deleteComment = async (comment_id) => (await connection
+  .select('*')
+  .from('comments')
+  .where({ comment_id })
+  .del()) ? true : false
+
 export {
   fetchComments,
   fetchCommentByID,
   insertComment,
+  deleteComment,
 }

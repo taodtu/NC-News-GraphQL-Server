@@ -9,6 +9,7 @@ export default {
  },
  Mutation: {
   createComment: (parent, { body, author }, { models }) => models.insertComment(body, author),
+  deleteComment: (parent, { comment_id }, { models }) => models.deleteComment(comment_id),
  },
  Topic: {
   articles: (parent, args, { models }) => models.fetchArticlesByTopic(parent.slug),
