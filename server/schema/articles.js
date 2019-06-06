@@ -1,7 +1,7 @@
 import { gql } from 'apollo-server-express';
 export default gql`
  extend type Query{
-  articles:[Article]
+  articles(cursor:String, limit:Int, sort_by:String,order:String):[Article]
   getArticle(article_id:ID!):Article
  }
 
