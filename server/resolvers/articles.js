@@ -1,8 +1,11 @@
-import connection from '../../db/connection';
+export default {
+ Query: {
+  articles: (parent, args, { models }) => models.fetchArticles(),
+  getArticle: (parent, { article_id }, { models }) => models.fetchArticleByID(article_id),
 
-const fetchTreasures = async () => await connection.select('*').from('treasures').limit(5);
+ },
+ Article: {
+  comments: (parent, args, { models }) => models.fetchCommentsByArticle(parent.article_id)
+ },
 
-const fetchTreasuresByShopID = async (id) => await connection.select('*').from('treasures').where({ shop_id: id }).returning('*');
-
-
-export { fetchTreasures, fetchTreasuresByShopID }
+}

@@ -1,9 +1,13 @@
-import connection from '../../db/connection';
+export default {
+ Query: {
+  topics: (parent, args, { models }) => models.fetchTopics(),
 
-const fetchOwners = async () => await connection.select('*').from('owners').limit(100);
+ },
 
-const fetchOwnerByID = async (id) => await connection.select('*').from('owners').where({ owner_id: id }).returning('*');
+ Topic: {
+  articles: (parent, args, { models }) => models.fetchArticlesByTopic(parent.slug),
+  comment_count: (parent, args, { models }) => models.countComments(parent.slug),
+ },
 
-export { fetchOwners, fetchOwnerByID }
-
+}
 
