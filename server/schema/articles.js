@@ -23,6 +23,7 @@ export default gql`
   topic: String,
   author:String,
   created_at:Date,
+  user:User,
   comment_count:Int,
   comments:[Comment]
  }

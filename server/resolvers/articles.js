@@ -6,6 +6,7 @@ export default {
 
  },
  Article: {
+  user: (parent, args, { models }) => models.fetchUserByArticle(parent.article_id),
   comments: (parent, args, { models }) => models.fetchCommentsByArticle(parent.article_id)
  },
 

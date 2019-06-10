@@ -38,11 +38,24 @@ const fetchArticleByID = async (article_id) => await
 const fetchCommentsByArticle = async (article_id) => await connection
   .select('*')
   .from('comments')
-  .where({ article_id })
-  .returning('*');
+  .where({ article_id });
+
+const fetchUserByArticle = async (article_id) => {
+  const { author } = await connection
+    .select('author')
+    .from('articles')
+    .where({ article_id })
+    .first();
+  return await connection
+    .select('*')
+    .from('users')
+    .where({ username: author })
+    .first();
+}
 
 export {
   fetchArticles,
   fetchArticleByID,
-  fetchCommentsByArticle
+  fetchCommentsByArticle,
+  fetchUserByArticle
 }
