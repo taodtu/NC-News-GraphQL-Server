@@ -6,14 +6,21 @@ const { topics } = require('./api');
 describe('users', () => {
  beforeEach(() => connection.seed.run());
  after(() => connection.destroy());
- describe('getUser(username:"grumpy19): User', () => {
-  it('returns a user when user can be found', async () => {
+ describe('test the topics query', () => {
+  it('returns all the topics ', async () => {
    const expectedResult = {
     data: {
-     getUser: {
-      username: "grumpy19",
-      name: "Paul Grump",
-     },
+     topics: [
+      {
+       slug: "football"
+      },
+      {
+       slug: "cooking"
+      },
+      {
+       slug: "coding"
+      }
+     ]
     },
    };
 
