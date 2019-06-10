@@ -1,4 +1,4 @@
-export default {
+exports.articlesResolvers = {
  Query: {
   articles: (parent, { cursor, limit = 10, sort_by = "created_at", order = "desc" }, { models }) => models.fetchArticles({ cursor, limit, sort_by, order }),
 

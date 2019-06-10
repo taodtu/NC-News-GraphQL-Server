@@ -1,9 +1,9 @@
 const { gql } = require('apollo-server-express');
 
-import { usersSchema } from './users';
-import { topicsSchema } from './topics';
-import { articlesSchema } from './articles';
-import { commentsSchema } from './comments';
+const { usersSchema } = require('./users');
+const { topicsSchema } = require('./topics');
+const { articlesSchema } = require('./articles');
+const { commentsSchema } = require('./comments');
 
 const linkSchema = gql`
 
@@ -20,4 +20,4 @@ const linkSchema = gql`
   }
 `;
 
-module.exports = { schema: [linkSchema, usersSchema, topicsSchema, articlesSchema, commentsSchema] };
+exports.schema = [linkSchema, usersSchema, topicsSchema, articlesSchema, commentsSchema];

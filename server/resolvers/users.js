@@ -1,4 +1,4 @@
-export default {
+exports.usersResolvers = {
  Query: {
   getUser: (parent, { username }, { models }) => models.fetchUser(username),
 

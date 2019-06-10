@@ -1,4 +1,4 @@
-export default {
+exports.topicsResolvers = {
  Query: {
   topics: (parent, args, { models }) => models.fetchTopics(),
 

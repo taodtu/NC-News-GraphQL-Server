@@ -1,8 +1,8 @@
-import { GraphQLDateTime } from 'graphql-iso-date';
-import usersResolvers from './users';
-import topicsResolvers from './topics';
-import articlesResolvers from './articles';
-import commentsResolvers from './comments';
+const { GraphQLDateTime } = require('graphql-iso-date');
+const { usersResolvers } = require('./users');
+const { topicsResolvers } = require('./topics');
+const { articlesResolvers } = require('./articles');
+const { commentsResolvers } = require('./comments');
 
 const customScalarResolver = {
  Date: GraphQLDateTime,
