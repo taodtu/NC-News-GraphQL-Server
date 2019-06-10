@@ -35,7 +35,7 @@ const updateCommentByID = async (comment_id, inc_votes) => {
   return res[0]
 }
 
-export {
+module.exports = {
   fetchComments,
   fetchCommentByID,
   insertComment,

@@ -1,7 +1,7 @@
-import { fetchTopics, fetchArticlesByTopic, countComments } from './topics';
-import { fetchUser, fetchArticlesByUser, fetchCommentsByUser, articleCount } from './users';
-import { fetchArticles, fetchArticleByID, fetchCommentsByArticle, fetchUserByArticle } from './articles';
-import { fetchComments, fetchCommentByID, insertComment, deleteComment, updateCommentByID } from './comments'
+const { fetchTopics, fetchArticlesByTopic, countComments } = require('./topics');
+const { fetchUser, fetchArticlesByUser, fetchCommentsByUser, articleCount } = require('./users');
+const { fetchArticles, fetchArticleByID, fetchCommentsByArticle, fetchUserByArticle } = require('./articles');
+const { fetchComments, fetchCommentByID, insertComment, deleteComment, updateCommentByID } = require('./comments');
 
 module.exports = {
  models: {

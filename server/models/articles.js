@@ -53,7 +53,7 @@ const fetchUserByArticle = async (article_id) => {
     .first();
 }
 
-export {
+module.exports = {
   fetchArticles,
   fetchArticleByID,
   fetchCommentsByArticle,

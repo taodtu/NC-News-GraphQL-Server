@@ -19,7 +19,7 @@ const countComments = async (topic) => {
  return articles.reduce((acc, cur) => acc += +cur.comment_count, 0)
 };
 
-export {
+module.exports = {
  fetchTopics,
  fetchArticlesByTopic,
  countComments

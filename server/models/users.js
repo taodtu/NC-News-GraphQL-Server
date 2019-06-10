@@ -32,7 +32,7 @@ const fetchCommentsByUser = async (author) => await connection
   .where({ author })
   .returning('*');
 
-export {
+module.exports = {
   fetchUser,
   fetchArticlesByUser,
   fetchCommentsByUser,
