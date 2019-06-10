@@ -1,8 +1,7 @@
 const cors = require('cors');
 const express = require('express');
 const { ApolloServer } = require('apollo-server-express');
-import dbConfig from '../knexfile'
-const connection = require('knex')(dbConfig);
+const connection = require('../db/connection');
 const { schema } = require('./schema');
 const { resolvers } = require('./resolvers');
 const { models } = require('./models');
