@@ -26,7 +26,7 @@ server.applyMiddleware({ app, path: '/graphql' });
 // app.listen(PORT, () => {
 //  console.log('Apollo Server on http://localhost:8000/graphql');
 // });
-app.listen({ port: process.env.PORT || 4000 }, () => {
- console.log(`🚀 Server ready at http://localhost:4000/graphql`);
+app.listen({ port: process.env.PORT || 8000 }, () => {
+ console.log(`🚀 Server ready at http://localhost:8000/graphql`);
 });
 
