@@ -1,6 +1,6 @@
 const axios = require('axios');
 
-const API_URL = 'http://localhost:8000/graphql';
+const API_URL = 'https://nc-news-graphql-server.herokuapp.com/graphql';
 
 exports.topics = async () =>
  axios.post(API_URL, {

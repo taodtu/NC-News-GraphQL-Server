@@ -20,7 +20,7 @@ const server = new ApolloServer({
  }
 });
 
-server.applyMiddleware({ app, path: '/graphql' });
+server.applyMiddleware({ app, path: '/graphql' }); //when deploy at heroku needs to add graphql to the path
 
 app.listen({ port: process.env.PORT || 8000 }, () => {
  console.log(`🚀 Server ready at http://localhost:8000/graphql`);
