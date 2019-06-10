@@ -1,6 +1,6 @@
-import { gql } from 'apollo-server-express';
+const { gql } = require('apollo-server-express');
 
-export default gql`
+exports.commentsSchema = gql`
  extend type Query{
   comments(sort_by:String, order:String):[Comment]
   getComment(comment_id:ID!):Comment

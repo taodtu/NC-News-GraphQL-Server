@@ -1,5 +1,5 @@
-import { gql } from 'apollo-server-express';
-export default gql`
+const { gql } = require('apollo-server-express');
+exports.usersSchema = gql`
  extend type Query{
   getUser(username:String!):User
  }

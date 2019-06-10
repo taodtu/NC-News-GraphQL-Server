@@ -1,5 +1,5 @@
-import { gql } from 'apollo-server-express';
-export default gql`
+const { gql } = require('apollo-server-express');
+exports.articlesSchema = gql`
  extend type Query{
   articles(cursor:String, limit:Int, sort_by:String,order:String):ArticleConnection!
   getArticle(article_id:ID!):Article

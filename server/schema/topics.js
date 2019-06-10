@@ -1,6 +1,6 @@
-import { gql } from 'apollo-server-express';
+const { gql } = require('apollo-server-express');
 
-export default gql`
+exports.topicsSchema = gql`
  extend type Query{
   topics:[Topic]
  }

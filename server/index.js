@@ -1,11 +1,11 @@
-import cors from 'cors';
-import express from 'express';
-import { ApolloServer } from 'apollo-server-express';
+const cors = require('cors');
+const express = require('express');
+const { ApolloServer } = require('apollo-server-express');
 import dbConfig from '../knexfile'
 const connection = require('knex')(dbConfig);
-import schema from './schema';
-import resolvers from './resolvers';
-import models from './models';
+const { schema } = require('./schema');
+const { resolvers } = require('./resolvers');
+const { models } = require('./models');
 
 connection.seed.run()
 

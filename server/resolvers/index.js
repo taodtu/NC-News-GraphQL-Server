@@ -8,4 +8,4 @@ const customScalarResolver = {
  Date: GraphQLDateTime,
 }
 
-export default [usersResolvers, topicsResolvers, articlesResolvers, commentsResolvers, customScalarResolver]
+module.exports = { resolvers: [usersResolvers, topicsResolvers, articlesResolvers, commentsResolvers, customScalarResolver] }
