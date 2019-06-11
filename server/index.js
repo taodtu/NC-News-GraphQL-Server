@@ -5,6 +5,7 @@ const connection = require('../db/connection');
 const { schema } = require('./schema');
 const { resolvers } = require('./resolvers');
 const { models } = require('./models');
+const fs = require('fs');
 
 connection.seed.run()
 
@@ -21,8 +22,14 @@ const server = new ApolloServer({
 });
 
 app.get('/', (req, res, next) => {
- res.status(200).send({ msg: "welcome to my nc-news-graphql api! to consume this api, please go to http://localhost:8000/graphql" });
+ res.status(200).send({ msg: "welcome to my nc-news-graphql api! to consume this api, please go to https://nc-news-graphql-server.herokuapp.com/graphql" });
 });
+
+app.get('/graphql', (req, res, next) => {
+ fs.readFile('./server/api.json', 'utf8', (err, api) => {
+  res.status(200).send({ api: JSON.parse(api) });
+ })
+})
 
 server.applyMiddleware({ app, path: '/graphql' }); //when deploy at heroku needs to add graphql to the path
 
