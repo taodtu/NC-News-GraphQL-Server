@@ -22,7 +22,7 @@ const server = new ApolloServer({
 });
 
 app.get('/', (req, res, next) => {
- res.status(200).send({ msg: "welcome to my nc-news-graphql api! to consume this api, please go to https://nc-news-graphql-server.herokuapp.com/graphql" });
+ res.status(200).send({ msg: "welcome to the nc-news-graphql api by Tao Li! to consume this api, please go to https://nc-news-graphql-server.herokuapp.com/graphql" });
 });
 
 app.get('/graphql', (req, res, next) => {
