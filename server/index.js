@@ -20,9 +20,15 @@ const server = new ApolloServer({
  }
 });
 
+app.get('/', (req, res, next) => {
+ res.status(200).send({ msg: "welcome to my nc-news-graphql api! to consume this api, please go to http://localhost:8000/graphql" });
+});
+
 server.applyMiddleware({ app, path: '/graphql' }); //when deploy at heroku needs to add graphql to the path
 
 app.listen({ port: process.env.PORT || 8000 }, () => {
  console.log(`🚀 Server ready at http://localhost:8000/graphql`);
 });
+
+
 
