@@ -27,7 +27,7 @@ An Apollo Server 2 with Graphql, Express, Knex and PostgreSQL.
 
 #### knexfile.js file
 
-Since this boilerplate project is using PostgreSQL, you have to install it for your machine and get a database up and running. After you have created a database and a database user, you can copy&paste the code below and fill out the knexfile with your database credentials.
+Since this project is using PostgreSQL, you have to install it for your machine and get a database up and running. After you have created a database and a database user, you can copy&paste the code below and fill out the knexfile with your database credentials.
 
 ```
 const ENV = process.env.NODE_ENV || 'development';
