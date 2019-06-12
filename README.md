@@ -1,5 +1,7 @@
 # nc-news-graphql-server
 
+A Apollo Server 2 with Graphql, Express, Knex and PostgreSQL.
+
 ## Available Scripts
 
 Create development and test databases locally:
