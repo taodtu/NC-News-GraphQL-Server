@@ -16,8 +16,8 @@ An Apollo Server 2 with Graphql, Express, Knex and PostgreSQL.
 
 ## Installation
 
-* `git clone git@github.com:the-road-to-graphql/fullstack-apollo-express-postgresql-boilerplate.git`
-* `cd fullstack-apollo-express-postgresql-boilerplate`
+* `git clone https://github.com/taodtu/NC-News-GraphQL-Server.git`
+* `cd NC-News-GraphQL-Server`
 * `touch knexfile.js`
 * `npm install`
 * fill out *knexfile.js file* (see below)
