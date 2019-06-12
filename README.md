@@ -20,14 +20,14 @@ An Apollo Server 2 with Graphql, Express, Knex and PostgreSQL.
 * `cd fullstack-apollo-express-postgresql-boilerplate`
 * `touch knexfile.js`
 * `npm install`
-* fill out *.env file* (see below)
-* start PostgreSQL database
+* fill out *knexfile.js file* (see below)
+* start&seed PostgreSQL database
 * `npm start`
 * visit `http://localhost:8000` for GraphQL playground
 
 #### knexfile.js file
 
-Since this boilerplate project is using PostgreSQL, you have to install it for your machine and get a database up and running. You find everything for the set up over here: [Setup PostgreSQL with Sequelize in Express Tutorial](https://www.robinwieruch.de/postgres-express-setup-tutorial). After you have created a database and a database user, you can fill out the environment variables in the *server/.env* file.
+Since this boilerplate project is using PostgreSQL, you have to install it for your machine and get a database up and running. After you have created a database and a database user, you can copy&paste the code below and fill out the knexfile with your database credentials.
 
 ```
 const ENV = process.env.NODE_ENV || 'development';
@@ -64,8 +64,6 @@ const customConfigs = {
 
 module.exports = { ...baseConfig, ...customConfigs[ENV] };
 ```
-
-The `SECRET` is just a random string for your authentication. Keep all these information secure by adding the *.env* file to your *.gitignore* file. No third-party should have access to this information.
 
 ## Available Scripts
 
