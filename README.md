@@ -1,6 +1,14 @@
 # nc-news-graphql-server
 
-A Apollo Server 2 with Graphql, Express, Knex and PostgreSQL.
+An Apollo Server 2 with Graphql, Express, Knex and PostgreSQL.
+
+## Features 
+
+* Node.js with Express and Apollo Server
+  * Queries, Mutations, Subscriptions
+  * cursor-based Pagination
+* PostgreSQL Database with Knex
+  * entities: topics, users, articles and comments
 
 ## Available Scripts
 
