@@ -5,6 +5,10 @@ exports.articlesSchema = gql`
   getArticle(article_id:ID!):Article
  }
 
+ extend type Mutation{
+  updateArticle(article_id:ID!, inc_votes:Int!):Article!
+}
+
  type ArticleConnection {
   edges: [Article]!
   pageInfo:PageInfo!

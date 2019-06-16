@@ -9,5 +9,7 @@ exports.articlesResolvers = {
   user: (parent, args, { models }) => models.fetchUserByArticle(parent.article_id),
   comments: (parent, args, { models }) => models.fetchCommentsByArticle(parent.article_id)
  },
-
+ Mutation: {
+  updateArticle: (parent, { article_id, inc_votes }, { models }) => models.updateArticleByID(article_id, inc_votes),
+ },
 }

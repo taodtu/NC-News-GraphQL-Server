@@ -53,9 +53,20 @@ const fetchUserByArticle = async (article_id) => {
     .first();
 }
 
+const updateArticleByID = async (article_id, inc_votes) => {
+  const res = await connection
+    .select('*')
+    .from('articles')
+    .where({ article_id: article_id })
+    .increment('votes', inc_votes)
+    .returning('*')
+  return res[0]
+}
+
 module.exports = {
   fetchArticles,
   fetchArticleByID,
   fetchCommentsByArticle,
-  fetchUserByArticle
+  fetchUserByArticle,
+  updateArticleByID
 }
