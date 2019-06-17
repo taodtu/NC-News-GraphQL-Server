@@ -22,14 +22,8 @@ const server = new ApolloServer({
 });
 
 app.get('/', (req, res, next) => {
- res.status(200).send({ msg: "welcome to the nc-news-graphql api by Tao Li! to consume this api, please go to https://nc-news-graphql-server.herokuapp.com/graphql" });
+ res.status(200).send({ msg: "welcome to the nc-news-graphql api by Tao Li! to consume this api, please go to https://nc-news-graphql-server.herokuapp.com/graphql, and refer to https://github.com/taodtu/NC-News-GraphQL-Server/tree/master/server/schema" });
 });
-
-app.get('/graphql', (req, res, next) => {
- fs.readFile('./server/api.json', 'utf8', (err, api) => {
-  res.status(200).send({ api: JSON.parse(api) });
- })
-})
 
 server.applyMiddleware({ app, path: '/graphql' }); //when deploy at heroku needs to add graphql to the path
 
