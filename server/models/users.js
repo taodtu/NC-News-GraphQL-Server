@@ -1,10 +1,10 @@
 const connection = require("../../db/connection");
 
+const fetchUsers = async () => await connection.select('*').from('users');
+
 const fetchUser = async (username) => await
-  connection.select('users.*').count({ comment_count: 'comment_id' })
+  connection.select('*')
     .from('users').where({ username })
-    .leftJoin('comments', 'comments.author', '=', 'users.username')
-    .groupBy('users.username')
     .first();
 
 
@@ -26,6 +26,14 @@ const articleCount = async (username) => {
   return count.article_count
 };
 
+const commentCount = async (username) => {
+  const count = await
+    connection.count({ comment_count: 'comment_id' })
+      .from('users').where({ username })
+      .leftJoin('comments', 'comments.author', '=', 'users.username')
+      .groupBy('users.username').returning('*').first()
+  return count.comment_count
+};
 const fetchCommentsByUser = async (author) => await connection
   .select('*')
   .from('comments')
@@ -33,8 +41,10 @@ const fetchCommentsByUser = async (author) => await connection
   .returning('*');
 
 module.exports = {
+  fetchUsers,
   fetchUser,
   fetchArticlesByUser,
   fetchCommentsByUser,
-  articleCount
+  articleCount,
+  commentCount
 }

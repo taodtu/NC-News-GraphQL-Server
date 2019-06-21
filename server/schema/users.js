@@ -2,6 +2,7 @@ const { gql } = require('apollo-server-express');
 exports.usersSchema = gql`
  extend type Query{
   getUser(username:String!):User
+  users:[User]
  }
  
  type User{
