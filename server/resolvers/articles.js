@@ -4,6 +4,7 @@ exports.articlesResolvers = {
 
   getArticle: (parent, { article_id }, { models }) => models.fetchArticleByID(article_id),
   articlesByAuthor: (parent, { username }, { models }) => models.fetchArticlesByUser(username),
+  articlesByTopic: (parent, { topic }, { models }) => models.fetchArticlesByTopic(topic),
  },
  Article: {
   user: (parent, args, { models }) => models.fetchUserByArticle(parent.article_id),
