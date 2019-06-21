@@ -7,7 +7,7 @@ exports.commentsSchema = gql`
  }
  
 extend type Mutation{
-  createComment(body:String! author:String!):Comment!
+  createComment(body:String! username:String! article_id:ID!):Comment!
   deleteComment(comment_id:ID!):Boolean!
   updateComment(comment_id:ID!, inc_votes:Int!):Comment!
 }

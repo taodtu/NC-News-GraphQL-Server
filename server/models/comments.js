@@ -10,12 +10,12 @@ const fetchComments = async (sort_by = 'created_at', order = 'desc') => await
 const fetchCommentByID = async (comment_id) => await
   connection.select('*').from('comments').where({ comment_id }).returning('*').first();
 
-const insertComment = async (body, author) => {
-  const res = await connection
-    .insert({ body, author })
+const insertComment = async (body, username, article_id) => {
+  rows = await connection
+    .insert({ article_id, author: username, body })
     .into("comments")
     .returning("*");
-  return res[0]
+  return rows[0];
 }
 
 const deleteComment = async (comment_id) => (await connection

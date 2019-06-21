@@ -4,7 +4,7 @@ exports.commentsResolvers = {
   getComment: (parent, { comment_id }, { models }) => models.fetchCommentByID(comment_id),
  },
  Mutation: {
-  createComment: (parent, { body, author }, { models }) => models.insertComment(body, author),
+  createComment: (parent, { body, username, article_id }, { models }) => models.insertComment(body, username, article_id),
   deleteComment: (parent, { comment_id }, { models }) => models.deleteComment(comment_id),
   updateComment: (parent, { comment_id, inc_votes }, { models }) => models.updateCommentByID(comment_id, inc_votes),
  },
