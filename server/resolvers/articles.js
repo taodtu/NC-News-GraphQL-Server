@@ -4,9 +4,9 @@ exports.articlesResolvers = {
 
   getArticle: (parent, { article_id }, { models }) => models.fetchArticleByID(article_id),
 
-  articlesByAuthor: (parent, { username, limit = 20, sort_by = "created_at", order = "desc" }, { models }) => models.fetchArticlesByUser(username, limit, sort_by, order),
+  articlesByAuthor: (parent, { username, limit = null, sort_by = "created_at", order = "desc" }, { models }) => models.fetchArticlesByUser(username, limit, sort_by, order),
 
-  articlesByTopic: (parent, { topic, limit = 20, sort_by = "created_at", order = "desc" }, { models }) => models.fetchArticlesByTopic(topic, limit, sort_by, order),
+  articlesByTopic: (parent, { topic, limit = null, sort_by = "created_at", order = "desc" }, { models }) => models.fetchArticlesByTopic(topic, limit, sort_by, order),
  },
  Article: {
   user: (parent, args, { models }) => models.fetchUserByArticle(parent.article_id),
