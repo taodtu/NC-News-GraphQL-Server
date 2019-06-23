@@ -8,14 +8,15 @@ const fetchUser = async (username) => await
     .first();
 
 
-const fetchArticlesByUser = async (author) => await connection
+const fetchArticlesByUser = async (author, limit, sort_by, order) => await connection
   .select('articles.*')
   .count({ comment_count: 'comment_id' })
   .from('articles')
   .where({ "articles.author": author })
   .leftJoin('comments', 'comments.article_id', '=', 'articles.article_id')
   .groupBy('articles.article_id')
-  .returning('*');
+  .limit(limit)
+  .orderBy(sort_by, order);
 
 const articleCount = async (username) => {
   const count = await

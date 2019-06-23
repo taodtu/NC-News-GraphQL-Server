@@ -3,8 +3,10 @@ exports.articlesResolvers = {
   articles: (parent, { cursor, limit = 10, sort_by = "created_at", order = "desc" }, { models }) => models.fetchArticles({ cursor, limit, sort_by, order }),
 
   getArticle: (parent, { article_id }, { models }) => models.fetchArticleByID(article_id),
-  articlesByAuthor: (parent, { username }, { models }) => models.fetchArticlesByUser(username),
-  articlesByTopic: (parent, { topic }, { models }) => models.fetchArticlesByTopic(topic),
+
+  articlesByAuthor: (parent, { username, limit = 20, sort_by = "created_at", order = "desc" }, { models }) => models.fetchArticlesByUser(username, limit, sort_by, order),
+
+  articlesByTopic: (parent, { topic, limit = 20, sort_by = "created_at", order = "desc" }, { models }) => models.fetchArticlesByTopic(topic, limit, sort_by, order),
  },
  Article: {
   user: (parent, args, { models }) => models.fetchUserByArticle(parent.article_id),
