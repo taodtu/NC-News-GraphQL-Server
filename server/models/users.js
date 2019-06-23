@@ -8,7 +8,7 @@ const fetchUser = async (username) => await
     .first();
 
 
-const fetchArticlesByUser = async (author, limit, sort_by, order) => await connection
+const fetchArticlesByUser = async (author, offset, limit, sort_by, order) => await connection
   .select('articles.*')
   .count({ comment_count: 'comment_id' })
   .from('articles')
@@ -16,6 +16,7 @@ const fetchArticlesByUser = async (author, limit, sort_by, order) => await conne
   .leftJoin('comments', 'comments.article_id', '=', 'articles.article_id')
   .groupBy('articles.article_id')
   .limit(limit)
+  .offset(offset)
   .orderBy(sort_by, order);
 
 const articleCount = async (username) => {
