@@ -35,10 +35,12 @@ const fetchArticleByID = async (article_id) => await
     .groupBy('articles.article_id')
     .returning('*').first();
 
-const fetchCommentsByArticle = async (article_id) => await connection
+const fetchCommentsByArticle = async (article_id, limit, sort_by, order) => await connection
   .select('*')
   .from('comments')
-  .where({ article_id });
+  .where({ article_id })
+  .limit(limit)
+  .orderBy(sort_by, order);
 
 const fetchUserByArticle = async (article_id) => {
   const { author } = await connection
