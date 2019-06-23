@@ -16,7 +16,7 @@ const fetchArticlesByTopic = async (topic, limit, sort_by, order) => await conne
  .orderBy(sort_by, order);
 
 const countComments = async (topic) => {
- const articles = await fetchArticlesByTopic(topic, limit = null, sort_by, order);
+ const articles = await fetchArticlesByTopic(topic, limit = null, sort_by = "created_at", order = "desc");
  return articles.reduce((acc, cur) => acc += +cur.comment_count, 0)
 };
 
