@@ -10,7 +10,7 @@ exports.articlesResolvers = {
  },
  Article: {
   user: (parent, args, { models }) => models.fetchUserByArticle(parent.article_id),
-  comments: (parent, { limit = null, sort_by = "created_at", order = "asc" }, { models }) => models.fetchCommentsByArticle(parent.article_id, limit, sort_by, order)
+  comments: (parent, { limit = null, sort_by = "created_at", order = "desc" }, { models }) => models.fetchCommentsByArticle(parent.article_id, limit, sort_by, order)
  },
  Mutation: {
   updateArticle: (parent, { article_id, inc_votes }, { models }) => models.updateArticleByID(article_id, inc_votes),
