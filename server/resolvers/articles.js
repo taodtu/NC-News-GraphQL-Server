@@ -6,7 +6,7 @@ exports.articlesResolvers = {
 
   articlesByAuthor: (parent, { username, offset = 0, limit = null, sort_by = "created_at", order = "desc" }, { models }) => models.fetchArticlesByUser(username, offset, limit, sort_by, order),
 
-  articlesByTopic: (parent, { topic, limit = null, sort_by = "created_at", order = "desc" }, { models }) => models.fetchArticlesByTopic(topic, limit, sort_by, order),
+  articlesByTopic: (parent, { topic, offset = 0, limit = null, sort_by = "created_at", order = "desc" }, { models }) => models.fetchArticlesByTopic(topic, offset, limit, sort_by, order),
  },
  Article: {
   user: (parent, args, { models }) => models.fetchUserByArticle(parent.article_id),

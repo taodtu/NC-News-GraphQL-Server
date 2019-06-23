@@ -4,7 +4,7 @@ exports.articlesSchema = gql`
   articles(cursor:String, limit:Int, sort_by:String,order:String):ArticleConnection!
   getArticle(article_id:ID!):Article
   articlesByAuthor(username:String!,offset:Int, limit:Int, sort_by:String,order:String):[Article]
-  articlesByTopic(topic:String!, limit:Int, sort_by:String,order:String):[Article]
+  articlesByTopic(topic:String!, offset:Int,limit:Int, sort_by:String,order:String):[Article]
  }
 
  extend type Mutation{
