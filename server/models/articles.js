@@ -21,7 +21,7 @@ const fetchArticles = async ({ cursor, limit, sort_by, order }) => {
       edges,
       pageInfo: {
         hasNextPage,
-        endCursor: articles[articles.length - 1].created_at
+        endCursor: articles[articles.length - 2].created_at
       }
     }
   }
