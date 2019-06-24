@@ -1,26 +1,51 @@
 const connection = require("../../db/connection");
 
 const fetchArticles = async ({ cursor, limit, sort_by, order }) => {
-  let newLimit = limit + 1;
-  const articles = await connection
-    .select('articles.*')
-    .count({ comment_count: 'comment_id' })
-    .from('articles')
-    .leftJoin('comments', 'comments.article_id', '=', 'articles.article_id')
-    .groupBy('articles.article_id')
-    .modify(query => {
-      if (cursor) query.where("articles.created_at", "<", cursor);
-    })
-    .limit(newLimit)
-    .orderBy(sort_by, order);
-  const hasNextPage = articles.length > limit;
-  const edges = hasNextPage ? articles.slice(0, -1) : articles;
+  if (limit) {
+    let newLimit = limit + 1;
+    const articles = await connection
+      .select('articles.*')
+      .count({ comment_count: 'comment_id' })
+      .from('articles')
+      .leftJoin('comments', 'comments.article_id', '=', 'articles.article_id')
+      .groupBy('articles.article_id')
+      .modify(query => {
+        if (cursor) query.where("articles.created_at", "<", cursor);
+      })
+      .limit(newLimit)
+      .orderBy(sort_by, order);
+    const hasNextPage = articles.length > limit;
+    const edges = hasNextPage ? articles.slice(0, -1) : articles;
 
-  return {
-    edges,
-    pageInfo: {
-      hasNextPage,
-      endCursor: articles[articles.length - 1].created_at
+    return {
+      edges,
+      pageInfo: {
+        hasNextPage,
+        endCursor: articles[articles.length - 1].created_at
+      }
+    }
+  }
+  else {
+    const articles = await connection
+      .select('articles.*')
+      .count({ comment_count: 'comment_id' })
+      .from('articles')
+      .leftJoin('comments', 'comments.article_id', '=', 'articles.article_id')
+      .groupBy('articles.article_id')
+      .modify(query => {
+        if (cursor) query.where("articles.created_at", "<", cursor);
+      })
+      .limit(limit)
+      .orderBy(sort_by, order);
+    const hasNextPage = false;
+    const edges = articles;
+
+    return {
+      edges,
+      pageInfo: {
+        hasNextPage,
+        endCursor: articles[articles.length - 1].created_at
+      }
     }
   }
 }

@@ -5,7 +5,6 @@ const connection = require('../db/connection');
 const { schema } = require('./schema');
 const { resolvers } = require('./resolvers');
 const { models } = require('./models');
-const fs = require('fs');
 
 connection.seed.run()
 
