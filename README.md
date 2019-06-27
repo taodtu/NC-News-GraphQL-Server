@@ -1,12 +1,17 @@
-# nc-news-graphql-server
+# An Apollo Server 2 with Graphql, Express, Knex and PostgreSQL.
 
-An Apollo Server 2 with Graphql, Express, Knex and PostgreSQL.
+The client App is hosted on [Netlify](https://tao-apollo-graphql-nc-news-client.netlify.com/) and the client app source code is hosted on [Github](https://github.com/taodtu/react-apollo-graphql-ncnews-client).
+
+Northcoders News is a social news aggregation, web content rating, and discussion website. Northcoders News has articles which are divided into topics. Each article has user curated ratings and can be up or down voted using the API. Users can also add comments about an article. Comments can also be up or down voted. A user can add comments and remove any comments which they have added.
+
+This app builds the server with raw data from Northcoders using express, and stores data with PSQL.You can consume the built API via [here](https://nc-news-graphql-server.herokuapp.com/).
 
 ## Features 
 
 * Node.js with Express and Apollo Server
 
-  * Queries, Mutations, Subscriptions
+  * Schema, Resolver, Model.
+  * Queries, Mutations
   * cursor-based Pagination
   
 * PostgreSQL Database with Knex
@@ -65,52 +70,3 @@ const customConfigs = {
 module.exports = { ...baseConfig, ...customConfigs[ENV] };
 ```
 
-## Available Scripts
-
-Create development and test databases locally:
-
-```bash
-npm run setup-dbs
-```
-
-Create a new migration file:
-
-```bash
-npm run migrate-make <filename>
-```
-
-Run all migrations:
-
-```bash
-npm run migrate-latest
-```
-
-Rollback all migrations:
-
-```bash
-npm run migrate-rollback
-```
-
-Run tests:
-
-```bash
-npm test
-```
-
-Rollback, migrate -> latest, then start inserting data into the database:
-
-```bash
-npm run seed
-```
-
-Run the server with `nodemon`, for hot reload:
-
-```bash
-npm run dev
-```
-
-Run the server with `node`:
-
-```bash
-npm start
-```
