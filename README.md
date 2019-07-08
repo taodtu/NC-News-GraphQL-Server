@@ -1,34 +1,33 @@
 # An Apollo Server 2 with Graphql, Express, Knex and PostgreSQL.
 
-The client App is hosted on [Netlify](https://tao-apollo-graphql-nc-news-client.netlify.com/) and the client app source code is hosted on [Github](https://github.com/taodtu/react-apollo-graphql-ncnews-client).
+The client App is hosted on [https://tao-apollo-graphql-nc-news-client.netlify.com/](https://tao-apollo-graphql-nc-news-client.netlify.com/) and the client app source code is hosted on [https://github.com/taodtu/react-apollo-graphql-ncnews-client](https://github.com/taodtu/react-apollo-graphql-ncnews-client).
 
 Northcoders News is a social news aggregation, web content rating, and discussion website. Northcoders News has articles which are divided into topics. Each article has user curated ratings and can be up or down voted using the API. Users can also add comments about an article. Comments can also be up or down voted. A user can add comments and remove any comments which they have added.
 
-This app builds the server with raw data from Northcoders using express, and stores data with PSQL.You can consume the built API via [here](https://nc-news-graphql-server.herokuapp.com/).
+This app builds the server with raw data from Northcoders using express, and stores data with PSQL.You can consume the built API via [https://nc-news-graphql-server.herokuapp.com/](https://nc-news-graphql-server.herokuapp.com/).
 
-## Features 
+## Features
 
-* Node.js with Express and Apollo Server
+- Node.js with Express and Apollo Server
 
-  * Schema, Resolver, Model.
-  * Queries, Mutations
-  * cursor-based Pagination
-  
-* PostgreSQL Database with Knex
+  - Schema, Resolver, Model.
+  - Queries, Mutations
+  - cursor-based Pagination
 
-  * entities: topics, users, articles and comments
+- PostgreSQL Database with Knex
 
+  - entities: topics, users, articles and comments
 
 ## Installation
 
-* `git clone https://github.com/taodtu/NC-News-GraphQL-Server.git`
-* `cd NC-News-GraphQL-Server`
-* `touch knexfile.js`
-* `npm install`
-* fill out *knexfile.js file* (see below)
-* start&seed PostgreSQL database
-* `npm start`
-* visit `http://localhost:8000` for GraphQL playground
+- `git clone https://github.com/taodtu/NC-News-GraphQL-Server.git`
+- `cd NC-News-GraphQL-Server`
+- `touch knexfile.js`
+- `npm install`
+- fill out _knexfile.js file_ (see below)
+- start&seed PostgreSQL database
+- `npm start`
+- visit `http://localhost:8000` for GraphQL playground
 
 #### knexfile.js file
 
@@ -69,4 +68,3 @@ const customConfigs = {
 
 module.exports = { ...baseConfig, ...customConfigs[ENV] };
 ```
-
